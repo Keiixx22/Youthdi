@@ -1,0 +1,120 @@
+:root {
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --bg: #f5f6f3;
+  --card: #ffffff;
+  --line: #e2e5df;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --danger: #b42318;
+  --ok: #067647;
+  --cash: #0f766e;
+  --qris: #b45309;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, h3, p { margin: 0; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1rem; }
+
+button, .button, input, select {
+  font: inherit;
+  min-height: 44px; /* tablet-friendly tap targets */
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  padding: 0 14px;
+  background: #fff;
+  color: inherit;
+}
+button, .button { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.big { width: 100%; min-height: 56px; font-size: 1.1rem; font-weight: 600; }
+button.link { background: none; border: none; min-height: 0; padding: 0; color: var(--accent); text-decoration: underline; }
+:focus-visible { outline: 3px solid #5eead4; outline-offset: 2px; }
+
+label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--muted); }
+label input, label select { color: var(--ink); }
+
+.app { min-height: 100vh; }
+main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+.center { text-align: center; padding: 48px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.8rem; }
+.error { color: var(--danger); }
+.ok { color: var(--ok); }
+.empty { padding: 32px 16px; text-align: center; color: var(--muted); background: var(--card); border: 1px dashed var(--line); border-radius: 12px; }
+.banner { background: #fef3c7; color: #92400e; text-align: center; padding: 8px; font-size: 0.9rem; }
+
+.topbar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 8px 16px; background: var(--card); border-bottom: 1px solid var(--line); }
+.topbar nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; }
+.tab { min-height: 40px; border: none; background: none; padding: 0 12px; display: inline-flex; align-items: center; }
+.tab.active { background: #e6f4f1; color: var(--accent); font-weight: 600; border-radius: 8px; }
+.who { font-size: 0.875rem; color: var(--muted); }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.stack { display: grid; gap: 12px; align-content: start; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.toolbar h2 { flex-basis: 100%; }
+
+.auth { max-width: 420px; margin: 0 auto; padding: 48px 16px; display: grid; gap: 12px; }
+.auth h1 { font-size: 2rem; color: var(--accent); }
+
+.cashier { display: grid; grid-template-columns: 1fr 360px; gap: 16px; align-items: start; }
+@media (max-width: 800px) { .cashier { grid-template-columns: 1fr; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.chip { border-radius: 999px; min-height: 36px; }
+.chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.menu-tile { flex-direction: column; align-items: flex-start; justify-content: space-between; min-height: 84px; padding: 12px; text-align: left; gap: 8px; background: var(--card); }
+.menu-tile:active { background: #e6f4f1; }
+.order-line { display: grid; gap: 6px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.qty { display: flex; align-items: center; gap: 8px; }
+.qty button { width: 44px; padding: 0; }
+.note { flex: 1; min-width: 0; min-height: 36px; }
+.total { font-size: 1.25rem; padding-top: 4px; }
+.segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.segmented .active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.qris { max-width: 100%; width: 260px; margin: 0 auto; display: block; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.stats .card { display: grid; gap: 4px; }
+.big-num { font-size: 1.75rem; }
+.split { display: flex; height: 16px; border-radius: 8px; overflow: hidden; background: var(--line); }
+.split-cash { background: var(--cash); }
+.split-qris { background: var(--qris); }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+.dot.cash { background: var(--cash); }
+.dot.qris { background: var(--qris); }
+
+.table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+th { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+.num { text-align: right; white-space: nowrap; }
+tr.inactive { color: var(--muted); }
+td input { width: 100%; min-width: 90px; }
+
+.modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5); display: grid; place-items: center; padding: 16px; z-index: 10; overflow: auto; }
+.modal-card { background: var(--card); border-radius: 12px; padding: 16px; display: grid; gap: 16px; max-width: 420px; width: 100%; }
+.receipt { font-family: 'Courier New', monospace; font-size: 12px; margin: 0 auto; background: #fff; color: #000; padding: 4px; }
+.receipt.w58 { width: 58mm; }
+.receipt.w80 { width: 80mm; }
+.receipt h3, .receipt .thanks { text-align: center; }
+.receipt hr { border: none; border-top: 1px dashed #000; margin: 6px 0; }
+.receipt .line { display: grid; margin-bottom: 4px; }
+.receipt .line span:last-of-type { text-align: right; }
+.receipt .row { font-size: 12px; }
+
+@media print {
+  @page { margin: 0; }
+  body * { visibility: hidden; }
+  #receipt, #receipt * { visibility: visible; }
+  #receipt { position: absolute; left: 0; top: 0; }
+  .no-print { display: none !important; }
+}
